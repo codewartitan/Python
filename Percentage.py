@@ -1,0 +1,1 @@
+Actual_Price = int(input("Enter the Price"))
