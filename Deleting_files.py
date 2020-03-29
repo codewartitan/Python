@@ -1,7 +1,7 @@
 import os
 import time
 
-path = "C:/Users/msame/OneDrive/Camera Roll/Documents/Landchecks\Delete"
+path = "/Users/sameer/Downloads/Landchecks/Delete"
 now = time.time()
 dirs = os.listdir(path)
 for filename in os.listdir(path):
