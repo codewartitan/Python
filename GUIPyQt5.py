@@ -5,27 +5,44 @@ from PyQt5.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QPushButto
 if __name__ == "__main__":
     app = QApplication([])
     w = QWidget()
+    # First Group Inputs
     VideoUrl = QLabel(w)
     VideoUrl.setText('videoURL')
-    VideoUrl.move(100, 40)
+    # VideoUrl.move(100, 40)
     InputText = QLineEdit(w)
-    InputText.setFixedWidth(330)
+    # InputText.setFixedWidth(330)
     # InputText.move(100, 60)
-    Button = QPushButton(w)
-    Button.setText('Download')
-    # Button.move(90, 85)
+    DownloadButton = QPushButton(w)
+    DownloadButton.setText('Download')
+    # CancelButton = QPushButton(w)
+    # CancelButton.setText('Cancel')
 
-    # okButton = QPushButton("OK")
-    # cancelButton = QPushButton("Cancel")
+    # Second Group Inputs
+    Outputlabel = QLabel(w)
+    Outputlabel.setText('Output Directory')
+    Outputinput = QLineEdit(w)
+    BrowseButton = QPushButton(w)
+    BrowseButton.setText('Browse')
 
+    # First Group
     hbox = QHBoxLayout()
-    hbox.addStretch(1)
+    # hbox.addStretch(1)
+    hbox.addWidget(VideoUrl)
     hbox.addWidget(InputText)
-    hbox.addWidget(Button)
+    hbox.addWidget(DownloadButton)
+    # hbox.addWidget(CancelButton)
+    # w.setLayout(hbox)
+
+    # Second Group
+    hbox1 = QHBoxLayout()
+    hbox1.addWidget(Outputlabel)
+    hbox1.addWidget(Outputinput)
+    hbox1.addWidget(BrowseButton)
 
     vbox = QVBoxLayout()
-    vbox.addStretch(1)
+    # vbox.addStretch(1)
     vbox.addLayout(hbox)
+    vbox.addLayout(hbox1)
     w.setLayout(vbox)
 
 
@@ -40,7 +57,8 @@ def clickMethod():
     output = QLabel(w)
     if YouTubeURL == '':
         output.setText('Please Enter the Youtube URL')
-        output.move(150, 150)
+        output.setFixedWidth(330)
+        output.move(200, 300)
         output.show()
     else:
         yt = YouTube(YouTubeURL)
@@ -52,7 +70,7 @@ def clickMethod():
         output.show()
 
 
-Button.clicked.connect(clickMethod)
+DownloadButton.clicked.connect(clickMethod)
 
 w.resize(700, 500)
 
