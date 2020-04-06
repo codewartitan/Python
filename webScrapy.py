@@ -1,6 +1,7 @@
 from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd
+from googlesearch import search
 from webdriver_manager.chrome import ChromeDriverManager
 
 # it will directly install chromeDriveManager into the system
@@ -13,7 +14,7 @@ driver.get('https://thebrokerlist.com/search_profiles?lightbox=0&order=profiles.
 content = driver.page_source
 soup = BeautifulSoup(content, 'html.parser')
 # print(soup.prettify())
-# results = soup.find("li", {"class": "profile_search_result_item"})
+# results = soup.find("div", {"class": "listing"})
 # print(results.prettify())
 
 for EachPart in soup.find_all("li", {"class": "profile_search_result_item"}):
